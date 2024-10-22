@@ -4,10 +4,10 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import { HelmetProvider } from 'react-helmet-async';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-calendar/dist/Calendar.css';
+import axios from 'axios';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import axios from 'axios';
 import { StoreProvider } from './Store';
 
 
