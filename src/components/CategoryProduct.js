@@ -16,7 +16,7 @@ function CategoryProduct(props) {
     const addToCartHandler = async (item) => {
         const existItem = cartItems.find((x) => x._id === product.product);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        const { data } = await axios.get(`/api/products/${item.product}`);
+        const { data } = await axios.get(`https://api.ugyard.com/api/products/${item.product}`);
         if (data.inStock < quantity) {
           window.alert('Sorry. Product is out of stock');
           return;

@@ -52,7 +52,7 @@ export default function SearchBox() {
         brand: setValue
       };
   
-      const { data } = await axios.get('/api/products/searchbar', { params });
+      const { data } = await axios.get('https://api.ugyard.com/api/products/searchbar', { params });
       dispatch({ type: 'FETCH_SUCCESS', payload: data });
     } catch (error) {
       dispatch({ type: 'FETCH_FAIL', payload: error });

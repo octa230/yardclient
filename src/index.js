@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 import { StoreProvider } from './Store';
 
 
-axios.defaults.baseURL = 'https://api.ugyard.com'
+//axios.defaults.baseURL = 'https://api.ugyard.com'
 const root = createRoot(document.getElementById('root'));
 
 

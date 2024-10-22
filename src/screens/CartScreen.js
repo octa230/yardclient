@@ -33,7 +33,7 @@ export default function CartScreen() {
   const { cart: { cartItems, userTrip}} = state;
 
   const updateCartHandler = async (item, quantity) => {
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`https://api.ugyard.com/api/products/${item._id}`);
     if (data.iStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;
@@ -63,7 +63,7 @@ export default function CartScreen() {
     const fetchData = async()=> {
       try{
         dispatch({type: 'FETCH_TRIPS'})
-        const {data} =  await axios.get('/api/trips') 
+        const {data} =  await axios.get('https://api.ugyard.com/api/trips') 
         console.log(data)
         dispatch({type: 'FETCH_SUCCESS', payload: data})
       }catch(error){

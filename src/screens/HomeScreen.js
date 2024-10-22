@@ -66,7 +66,7 @@ function HomeScreen() {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
-        const result = await axios.get('/api/products/featured')
+        const result = await axios.get('https://api.ugyard.com/api/products/featured')
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: err.message });
@@ -74,7 +74,7 @@ function HomeScreen() {
       ///FETCH_SHOPS
       dispatch({type: 'SHOPS_FETCH_REQUEST'})
       try{
-        const {data} = await axios.get('/api/shops')
+        const {data} = await axios.get('https://api.ugyard.com/api/shops')
         dispatch({type: 'SHOPS_FETCH_SUCCESS', payload: data})
       }catch(error){
         dispatch({type: 'SHOPS_FETCH_FAIL', payload: error.message})
@@ -83,7 +83,7 @@ function HomeScreen() {
       ///FETCH_OFFERS
       dispatch({type: 'OFFERS_FETCH_REQUEST'})
       try{
-        const {data} = await axios.get('/api/offers')
+        const {data} = await axios.get('https://api.ugyard.com/api/offers')
         dispatch({type: 'OFFERS_FETCH_SUCCESS', payload: data})
       }catch(error){
         dispatch({type: 'OFFERS_FETCH_FAIL', payload: error.message})

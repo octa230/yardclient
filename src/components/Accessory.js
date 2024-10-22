@@ -29,7 +29,7 @@ function Accessory(props) {
     const addToCartHandler = async(item)=> {
         const existItem = cartItems.find((x)=> x._id === accessory.accessory._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        const data  = axios.get(`/api/accessories/${item.accessory}`);
+        const data  = axios.get(`https://api.ugyard.com/api/accessories/${item.accessory}`);
 
         if(data.inStock < quantity){
             window.alert('Sold Out')

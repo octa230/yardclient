@@ -30,7 +30,7 @@ const ImageUpload = ({ label, name, multiple, onUpload }) => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('/api/upload', formData, {
+      const response = await axios.post('https://api.ugyard.com/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,
