@@ -7,9 +7,14 @@ import 'react-calendar/dist/Calendar.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import axios from 'axios';
 import { StoreProvider } from './Store';
 
+
+axios.defaults.baseURL = 'https://api.ugyard.com'
 const root = createRoot(document.getElementById('root'));
+
+
 
 root.render(
   <React.StrictMode>
