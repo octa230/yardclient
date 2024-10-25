@@ -43,7 +43,7 @@ const ShopsSearch = () => {
         const fetchData = async()=>{
             try{
             dispatch({type: 'FETCH_SHOPS'})
-            const res = await axios.get(`/api/shops/q?category=${encodeURIComponent(category)}`)
+            const res = await axios.get(`https://api.ugyard.com/api/shops/q?category=${encodeURIComponent(category)}`)
             dispatch({type: 'FETCH_SUCCESS', payload: res.data})
             }catch(error){
                 dispatch({type: "FETCH_FAILED", payload: getError(error)})

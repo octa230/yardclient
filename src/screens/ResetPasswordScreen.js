@@ -32,7 +32,7 @@ export default function ResetPasswordScreen() {
       return;
     }
     try {
-      await Axios.post('/api/users/reset-password', {
+      await Axios.post('https://api.ugyard.com/api/users/reset-password', {
         password,
         token,
       });

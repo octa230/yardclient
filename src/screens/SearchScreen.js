@@ -51,7 +51,7 @@ export default function SearchScreen() {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
         const { data } = await axios.get(
-          `/api/products/q?searchQuery=${searchQuery}&categoryName=${categoryName}&subcategory=${subcategory}&price=${price}&rating=${rating}&order=${order}`
+          `https://api.ugyard.com/api/products/q?searchQuery=${searchQuery}&categoryName=${categoryName}&subcategory=${subcategory}&price=${price}&rating=${rating}&order=${order}`
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (error) {

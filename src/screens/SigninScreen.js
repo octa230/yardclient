@@ -27,7 +27,7 @@ const SigninScreen=()=> {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/api/users/signin', {
+      const { data } = await axios.post('https://api.ugyard.com/api/users/signin', {
         email,
         password,
       });
@@ -60,7 +60,7 @@ const SigninScreen=()=> {
           if(res.data.email){
             (async()=> {
               try {
-                const { data } = await axios.post('/api/users/signin', {
+                const { data } = await axios.post('https://api.ugyard.com/api/users/signin', {
                   email: res.data.email,
                   verified: res.data.verified_email
                   //password: ,

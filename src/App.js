@@ -58,7 +58,7 @@ function App() {
         setCategories(parseData)  
       }else{
         try{
-          const {data}  = await axios.get('/api/category');
+          const {data}  = await axios.get('https://api.ugyard.com/api/category');
           setCategories(data)
           localStorage.setItem('yardCategories', JSON.stringify(data));
         } catch (error) {

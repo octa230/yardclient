@@ -103,7 +103,7 @@ export default function OrderScreen() {
     const fetchOrder = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/orders/${orderId}`, {
+        const { data } = await axios.get(`https://api.ugyard.com/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -125,7 +125,7 @@ export default function OrderScreen() {
       }
     } else {
       const getIntent = async()=> {
-        const {data} = await axios.post("/api/orders/intent", {
+        const {data} = await axios.post("https://api.ugyard.com/api/orders/intent", {
           totalPrice: order.totalPrice,
           orderId
         })
@@ -152,7 +152,7 @@ export default function OrderScreen() {
     try {
       dispatch({ type: 'DELIVER_REQUEST' });
       const { data } = await axios.put(
-        `/api/orders/${order._id}/deliver`,
+        `https://api.ugyard.com/api/orders/${order._id}/deliver`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },

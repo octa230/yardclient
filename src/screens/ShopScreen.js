@@ -55,7 +55,7 @@ export default function ShopScreen() {
       }else{
         try {
           dispatch({ type: 'FETCH_SHOP' });
-          const { data } = await axios.get(`/api/shops/seller/${slug}`, {
+          const { data } = await axios.get(`https://api.ugyard.com/api/shops/seller/${slug}`, {
             headers: { authorization: `Bearer ${userInfo.token}` },
           });
           dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -63,7 +63,7 @@ export default function ShopScreen() {
           // Use the fetched shopId here to get products
           if (data?._id) {
             dispatch({ type: 'FETCH_SHOP_PRODUCTS' });
-            const results = await axios.get(`/api/shops/${data._id}/products`);
+            const results = await axios.get(`https://api.ugyard.com/api/shops/${data._id}/products`);
             dispatch({ type: 'FETCH_SUCCESS_PRODUCTS', payload: results.data });
           }
         } catch (error) {

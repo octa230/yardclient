@@ -55,7 +55,7 @@ export default function ProfileScreen() {
   const deleteHandler = async()=>{
     if(window.confirm('DELEETE THIS ACCOUNT?')){
       try{
-        await axios.put('/api/users/request-deletion', 
+        await axios.put('https://api.ugyard.com/api/users/request-deletion', 
         {},{
           headers:{
             Authorization: `Bearer ${userInfo.token}`
@@ -74,7 +74,7 @@ export default function ProfileScreen() {
     try {
       dispatch({type: "UPDATE_REQUEST"})
       const { data } = await axios.put(
-        '/api/users/profile',
+        'https://api.ugyard.com/api/users/profile',
         {
           name,
           email, password,
