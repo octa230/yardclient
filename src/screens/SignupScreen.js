@@ -146,14 +146,14 @@ export default function SignupScreen() {
        
         <Button type="submit">SUBMMIT</Button>
 
-        <Button className="m-2 text-white" variant="success" onClick={login}>
+        <button className="m-2 text-white bg-primary p-2 border border-none rounded" onClick={login}>
             <strong>SIGN UP WITH GOOGLE🚀</strong>
-        </Button>
+        </button>
         </div>
-        <Button className="my-3 text-white w-100" variant="secondary" onClick={()=>{
+        <Button className="my-3 text-white w-100" variant='warning' onClick={()=>{
           navigate(`/signin?redirect=${redirect}`)
           }}>
-          <strong>HAVE ACCOUNT LOGIN..</strong>
+          <strong>GO TO LOGIN...</strong>
         </Button> 
       </Form>
 

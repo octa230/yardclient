@@ -244,7 +244,7 @@ function App() {
             </Routes>
           <FloatingWhatsApp phoneNumber='+256782144414' accountName='ugyard'/>  
             <footer>
-              <Row fluid className='text-dark my-1, bg-white'>
+              <Row className='text-dark my-1, bg-light my-2'>
               <Col md={4}>
               <h1 className='display-4 align-center'>Transforming Lives,<br/> One Experience at a Time!</h1>
               <Stack className=''>
