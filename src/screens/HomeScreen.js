@@ -111,7 +111,7 @@ function HomeScreen() {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <div className="featured">
-            {featuredProducts?.map((product) => (
+            {featuredProducts && featuredProducts.map((product) => (
               <Col key={product.slug} className="p-1 m-1 border"xs={4} md={4} lg={3} style={{width: "300px"}}>
                 <Link to={`/product/${product.slug}`}>
                 <Card.Img src={product.image} alt={product.name} 
@@ -126,8 +126,7 @@ function HomeScreen() {
       <LoadingBox />
     ) : error ? (
       <MessageBox variant='danger'>{error}</MessageBox>
-    ) : (
-      offers?.map((offer)=>(
+    ) : ( offers && offers.map((offer)=>(
           <OfferTemplateone key={offer._id} offer={offer}/>
         ))
     )}
@@ -139,7 +138,7 @@ function HomeScreen() {
         <MessageBox>No Stores</MessageBox>
       ): (
         <Row className="justify-content-center">
-          {shops?.map((shop)=> (
+          {shops && shops.map((shop)=> (
             <Col xs={12} md={3}key={shop._id}>
             <StoreCard shop={shop}/>
             </Col>

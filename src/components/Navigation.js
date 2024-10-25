@@ -17,7 +17,7 @@ export default function Navigation() {
     <div className='navigation-container'>
       <div className='categories-scroll'>
         <div className='categories-container'>
-          {categories?.map((category) => (
+          {categories && categories.map((category) => (
             <div
               key={category.name}
               className={`category-tab ${category.name === activeCategory ? 'active' : ''}`}
@@ -33,7 +33,7 @@ export default function Navigation() {
           ?.filter((category) => category.name === activeCategory)
           ?.map((category) => (
             <div key={category._id} className='subcategory-container'>
-              {category?.subcategories.map((sub) => (
+              {category.subcategories?.map((sub) => (
                 <Link
                   key={sub}
                   to={{
