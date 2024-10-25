@@ -20,7 +20,7 @@ const Navigation=(props)=> {
     <div className='navigation-container'>
       <div className='categories-scroll'>
         <div className='categories-container'>
-          {categories && categories.map((category) => (
+          {Array.isArray(categories) && categories.map((category) => (
             <div
               key={category.name}
               className={`category-tab ${category.name === activeCategory ? 'active' : ''}`}
@@ -32,11 +32,11 @@ const Navigation=(props)=> {
         </div>
       </div>
       <div className='subcategories-scroll'>
-        {categories
-          ?.filter((category) => category.name === activeCategory)
-          ?.map((category) => (
+        {Array.isArray(categories) && categories
+          .filter((category) => category.name === activeCategory)
+          .map((category) => (
             <div key={category._id} className='subcategory-container'>
-              {category.subcategories?.map((sub) => (
+              {Array.isArray(category.subcategories) && categories.map((sub) => (
                 <Link
                   key={sub}
                   to={{
