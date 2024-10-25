@@ -36,6 +36,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Stack from 'react-bootstrap/esm/Stack';
 import ShopScreen from './screens/ShopScreen';
 import ShopsSearch from './screens/ShopsSearch';
+import LoadingBox from './components/LoadingBox';
 
 
 function App() {
@@ -43,21 +44,28 @@ function App() {
   const { cart, userInfo, signInDate } = state;
   const [sellerMenu, viewsellerMenu] = useState(false)
   const [location, setLocation] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     const getCategories = async () => {
+      setIsLoading(true)
       // Check if categories are already in local storage
       const storedCategories = localStorage.getItem('yardCategories');
-      
-      if (!storedCategories) {
-        // Fetch categories only if they are not in local storage
-        try {
-          const { data } = await axios.get('/api/category');
+      //setCategories(storedCategories)
+      if (storedCategories) {
+        const parseData = JSON.parse(storedCategories)
+        setCategories(parseData)  
+      }else{
+        try{
+          const {data}  = await axios.get('/api/category');
+          setCategories(data)
           localStorage.setItem('yardCategories', JSON.stringify(data));
         } catch (error) {
           console.error('Error fetching categories:', error);
-        }
+        } 
       }
+      setIsLoading(false)
     };
   
     const getUserIpAddress = async () => {
@@ -69,7 +77,6 @@ function App() {
         console.error('Error fetching IP address:', error);
       }
     };
-  
     getCategories();
     getUserIpAddress();
   }, [userInfo]);
@@ -99,7 +106,7 @@ function App() {
     viewsellerMenu(value)
   }
 
-  return (
+  return isLoading ? (<LoadingBox/>) : (
   <BrowserRouter>
   <ToastContainer position="top-center" limit={1} />
 
@@ -178,7 +185,7 @@ function App() {
       <SearchBox/>
       </Col>
       </Row>
-        <Navigation/>
+        <Navigation categories={categories}/>
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/shop/:slug" element={<ShopScreen />} />
@@ -243,7 +250,7 @@ function App() {
                 <Row xs={12} className='p-2'>
                   <Col md={8}>
                     <h5 className='text-bold text-dark'>Buy, Sell, & Transport with Ease!</h5>
-                    <p>Whether you're an individual or a business owner in Uganda or the UAE, UGYARD is here to simplify your life. In just a few clicks, our platform connects you to a world of opportunities.
+                    <p className='text-weight-light'>Whether you're an individual or a business owner in Uganda or the UAE, UGYARD is here to simplify your life. In just a few clicks, our platform connects you to a world of opportunities.
                         We support nearly 20 business categories across various industries, UGYARD offers tailored features designed for sellers, transporters, and buyers alike.
                         What we are trying to do as a business:
                     </p>

@@ -1,19 +1,22 @@
 // Navigation.js
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Store } from '../Store';
 
-export default function Navigation() {
+
+const Navigation=(props)=> {
   const [activeCategory, setActiveCategory] = useState(null);
+  const { categories } = props;
+  //const { categories } = state;
+  
 
-  const { state } = useContext(Store);
-  const { categories } = state;
+
+  
 
   const handleCategoryClick = (categoryName) => {
     setActiveCategory(categoryName === activeCategory ? null : categoryName);
   };
 
-  return (
+  return ( 
     <div className='navigation-container'>
       <div className='categories-scroll'>
         <div className='categories-container'>
@@ -51,3 +54,5 @@ export default function Navigation() {
     </div>
   );
 }
+
+export default Navigation
