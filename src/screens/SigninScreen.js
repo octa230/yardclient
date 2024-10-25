@@ -112,12 +112,12 @@ const SigninScreen=()=> {
           <Button type="submit">SUBMMIT</Button>
         </div>
 
-        <div className='d-flex justify-content-between border p-2 align-content-center'>
-        <Button className="m-2 text-white" variant="secondary" onClick={()=>{
+        <div className='d-flex justify-content-between border border-radius-2 p-2 align-content-center '>
+        <Link className="m-2 text-dark border p-2 bg-warning" onClick={()=>{
           navigate(`/signup?redirect=${redirect}`)
           }}>
-            <strong>REGISTER NEW USER!</strong>
-        </Button>
+            Create New Account?
+        </Link>
         <Button className="m-2 text-white" variant='success' onClick={login}>
             <strong>LOGIN WITH GOOGLE🚀</strong>
         </Button>

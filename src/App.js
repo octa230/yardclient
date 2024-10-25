@@ -32,7 +32,6 @@ import PrivacyPolicy from './screens/PrivacyPolicy';
 import axios from 'axios';
 import TrustBox from './components/TrustBox';
 import Row from 'react-bootstrap/esm/Row';
-import Container from 'react-bootstrap/esm/Container';
 import Stack from 'react-bootstrap/esm/Stack';
 import ShopScreen from './screens/ShopScreen';
 import ShopsSearch from './screens/ShopsSearch';
@@ -244,12 +243,37 @@ function App() {
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           <FloatingWhatsApp phoneNumber='+256782144414' accountName='ugyard'/>  
-            <footer  className='text-dark my-1' style={{backgroundColor: "#Fefefe"}}>
-              <Container fluid>
-              <h1 className='display-3'>Transforming Lives, One Experience at a Time!</h1>
-                <Row xs={12} className='p-2'>
+            <footer>
+              <Row fluid className='text-dark my-1, bg-white'>
+              <Col md={4}>
+              <h1 className='display-4 align-center'>Transforming Lives,<br/> One Experience at a Time!</h1>
+              <Stack className=''>
+{/*                     <Link to='/'>
+                      <img src='/images/ugyard-logo.png' 
+                        width={200} height={100} className='logo bg-light img-thumbnail' 
+                        alt='logo' 
+                        />
+                    </Link> */}
+                    <a href='https://play.google.com/store/apps/details?id=com.mervynstunner.ugyard&pcampaignid=web_share'
+                      target="_blank" rel="noopener noreferrer"
+                    >
+                      <img src='/images/google-play.png' 
+                        className='w-25 flex-end'
+                        alt='logo' 
+                        />
+                    </a>
+                    <a href='/' target="_blank" rel="noopener noreferrer">
+                      <img src='/images/apple-store.png' 
+                        className='w-25'
+                        alt='logo' 
+                        />
+                    </a>
+                    <TrustBox/>
+                    <h4 className='d-none d-sm-block'>BUY & SELL ONLINE UGANDA TO U.A.E</h4>
+                  </Stack>
+              </Col>
                   <Col md={8}>
-                    <h5 className='text-bold text-dark'>Buy, Sell, & Transport with Ease!</h5>
+                    <h5 className='text-dark display-2'>Buy, Sell, & Transport On Ugyard!</h5>
                     <p className='text-weight-light'>Whether you're an individual or a business owner in Uganda or the UAE, UGYARD is here to simplify your life. In just a few clicks, our platform connects you to a world of opportunities.
                         We support nearly 20 business categories across various industries, UGYARD offers tailored features designed for sellers, transporters, and buyers alike.
                         What we are trying to do as a business:
@@ -263,34 +287,7 @@ function App() {
                 </ul>
                   Experience the future of commerce & marketplaces — join UGYARD today to reach millions of online shoppers in Uganda and UAE!
                   </Col>
-                  <Col md={3} xs={12}>
-                    <Stack className='d-flex align-items-end'>
-                    <Link to='/'>
-                      <img src='/images/ugyard-logo.png' 
-                        width={200} height={100} className='logo bg-light img-thumbnail' 
-                        alt='logo' 
-                        />
-                    </Link>
-                    <a href='https://play.google.com/store/apps/details?id=com.mervynstunner.ugyard&pcampaignid=web_share'
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <img src='/images/google-play.png' 
-                        width={200} height={100} 
-                        alt='logo' 
-                        />
-                    </a>
-                    <a href='/' target="_blank" rel="noopener noreferrer">
-                      <img src='/images/apple-store.png' 
-                        width={200} height={60} 
-                        alt='logo' 
-                        />
-                    </a>
-                    <TrustBox/>
-                    <h4>BUY & SELL ONLINE</h4>
-                    </Stack>
-                  </Col>
-                </Row>
-              </Container>
+              </Row>
             </footer>
   </BrowserRouter>
   );
