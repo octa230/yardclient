@@ -29,7 +29,6 @@ import { FloatingWhatsApp } from 'react-floating-whatsapp'
 import Offcanvas from 'react-bootstrap/esm/Offcanvas'
 import Button from 'react-bootstrap/esm/Button';
 import PrivacyPolicy from './screens/PrivacyPolicy';
-import axios from 'axios';
 import TrustBox from './components/TrustBox';
 import Row from 'react-bootstrap/esm/Row';
 import Container from 'react-bootstrap/esm/Container';
@@ -45,20 +44,7 @@ function App() {
   const [location, setLocation] = useState(null)
 
   useEffect(() => {
-    const getCategories = async () => {
-      // Check if categories are already in local storage
-      const storedCategories = localStorage.getItem('yardCategories');
-      
-      if (!storedCategories) {
-        // Fetch categories only if they are not in local storage
-        try {
-          const { data } = await axios.get('/api/category');
-          localStorage.setItem('yardCategories', JSON.stringify(data));
-        } catch (error) {
-          console.error('Error fetching categories:', error);
-        }
-      }
-    };
+    
   
     const getUserIpAddress = async () => {
       try {
@@ -70,7 +56,6 @@ function App() {
       }
     };
   
-    getCategories();
     getUserIpAddress();
   }, [userInfo]);
   
