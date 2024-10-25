@@ -237,13 +237,12 @@ function App() {
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           <FloatingWhatsApp phoneNumber='+256782144414' accountName='ugyard'/>  
-          <div className='text-light my-2' style={{backgroundColor: "#006534"}}>
-            <footer>
+            <footer  className='text-dark my-1' style={{backgroundColor: "#Fefefe"}}>
               <Container fluid>
               <h1 className='display-3'>Transforming Lives, One Experience at a Time!</h1>
-                <Row xs={12} className='p-3'>
+                <Row xs={12} className='p-2'>
                   <Col md={8}>
-                    <h5 className='text-bold'>Buy, Sell, & Transport with Ease!</h5>
+                    <h5 className='text-bold text-dark'>Buy, Sell, & Transport with Ease!</h5>
                     <p>Whether you're an individual or a business owner in Uganda or the UAE, UGYARD is here to simplify your life. In just a few clicks, our platform connects you to a world of opportunities.
                         We support nearly 20 business categories across various industries, UGYARD offers tailored features designed for sellers, transporters, and buyers alike.
                         What we are trying to do as a business:
@@ -286,7 +285,6 @@ function App() {
                 </Row>
               </Container>
             </footer>
-          </div>
   </BrowserRouter>
   );
 }

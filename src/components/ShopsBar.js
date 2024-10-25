@@ -27,7 +27,7 @@ const ShopsBar = () => {
     ]
   return (
     <Row className='mb-2'>
-    <h1 className='text-muted m-md-3'>LARGEST ONLINE RETAIL CHAIN IN UGANDA</h1>
+    <h1 className='text-muted m-md-3'>LARGEST ONLINE MARKET IN UGANDA</h1>
       {data.map((item, index)=> (
         <Col key={index} xs={4} lg={2} className='d-flex flex-column align-items-center justify-content-center p-1 border'>
         <h6 className='text-center text-bold'>{item.category}</h6>
@@ -39,7 +39,7 @@ const ShopsBar = () => {
           src={item.image}
           className='img-fluid img-thumbnail rounded-circle'
           alt={item.category}
-          style={{ maxWidth: '100px', maxHeight: '100px', objectFit: 'cover' }}
+          style={{ maxWidth: '100px', maxHeight: '100px', objectFit: 'scale-down' }}
         />
         </Link>
       </Col>

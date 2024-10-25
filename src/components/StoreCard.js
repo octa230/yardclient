@@ -23,7 +23,7 @@ const {shop} = props
     <Card onClick={()=> routingFunc(`/shop/${shop.slug}`)} className='store-card my-1'>
       <div className=' p-1 d-flex justify-content-between align-items-center'>
       <img src={shop.logo} className='img-thumbnail rounded-circle' alt={`${shop.name}-logo`}   
-        style={{ width: '50px', height: '50px' }}/>
+        style={{ width: '50px', height: '50px', objectFit:"scale-down"}}/>
       
       <Card.Text>{shop.name.toUpperCase()}</Card.Text>
 
