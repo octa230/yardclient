@@ -9,7 +9,6 @@ import MessageBox from '../components/MessageBox';
 import Product from '../components/Product';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
-import Container from 'react-bootstrap/esm/Container';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -81,7 +80,7 @@ export default function SearchScreen() {
   };
 
   return (
-    <Container fluid>
+    <div>
       <Helmet>
         <title>Search Products</title>
       </Helmet>
@@ -125,6 +124,6 @@ export default function SearchScreen() {
             </Row>
           </>
         )}
-    </Container>
+    </div>
   );
 }

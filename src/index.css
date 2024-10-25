@@ -331,7 +331,7 @@ button.thumbnail {
 
 .horizontal-scroll > * {
   flex: 0 0 auto;
-  margin-right: 10px; /* Adjust as needed */
+  margin-right: 10px;
 }
 
 .horizontal-item img {
