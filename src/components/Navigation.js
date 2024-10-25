@@ -36,7 +36,7 @@ const Navigation=(props)=> {
           .filter((category) => category.name === activeCategory)
           .map((category) => (
             <div key={category._id} className='subcategory-container'>
-              {Array.isArray(category.subcategories) && categories.map((sub) => (
+              {Array.isArray(category.subcategories) && categories.subcategories.map((sub) => (
                 <Link
                   key={sub}
                   to={{
