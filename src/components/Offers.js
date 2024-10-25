@@ -13,7 +13,7 @@ export const OfferTemplateone = (props) => {
         <div className="mt-2 p-2">
           <h1>{offer.title.toUpperCase()}</h1>
         <div className='horizontal-scroll'>
-            {offer.listings.map((listing, index) => (
+            {offer.listings?.map((listing, index) => (
               <div key={index} className="horizontal-item img">
                 <Card.Img src={listing.Photo} alt={listing.category.name}
                   onClick={()=> navigate(`/search?subcategory=${encodeURIComponent(listing.subcategory)}`)} 
@@ -29,7 +29,7 @@ export const OfferTemplateone = (props) => {
       return (
       <Row className='p-1'>
         <h1>{offer.title.toUpperCase()}</h1>
-        {offer.listings.map((listing, index) => (
+        {offer.listings?.map((listing, index) => (
           <Col key={index} className='p-1 d-flex flex-column justify-content-between' xs={6} md={3}>
               <Card.Img className='img-rounded h-100% object-fit-contain'
                 src={listing.Photo}
@@ -47,7 +47,7 @@ export const OfferTemplateone = (props) => {
     default:
       return (
         <Row className="my-1">
-          {offer.listings.map((listing, index) => (
+          {offer.listings?.map((listing, index) => (
             <Card.Img src={listing.Photo} alt={listing.category} key={index}/>
           ))}
         </Row>
