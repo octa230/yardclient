@@ -185,7 +185,7 @@ function App() {
       <SearchBox/>
       </Col>
       </Row>
-        <Navigation categories={categories}/>
+        {categories.length > 0 && (<Navigation categories={categories}/>)}
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/shop/:slug" element={<ShopScreen />} />
