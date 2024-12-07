@@ -1,26 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Card from 'react-bootstrap/esm/Card'
 import { useNavigate } from 'react-router-dom'
-import { Store } from '../Store'
 import { toast } from 'react-toastify'
 
 export default function StoreCard(props) {
 const navigate = useNavigate()
-
-const {state} = useContext(Store)
-const {userInfo} = state
-
-const routingFunc =(url)=> {
-    if(!userInfo){
-        navigate('/signin')
-        toast.warning('Login To View')
-    }else{
-        navigate(url)
-    }
-}
 const {shop} = props
-  return (
-    <Card onClick={()=> routingFunc(`/shop/${shop.slug}`)} className='store-card my-1'>
+
+
+  return shop.slug && (
+    <Card className='store-card p-2 m-1' key={shop._id} onClick={()=> navigate(`/shop/${shop.slug}`)}>
       <div className=' p-1 d-flex justify-content-between align-items-center'>
       <img src={shop.logo} className='img-thumbnail rounded-circle' alt={`${shop.name}-logo`}   
         style={{ width: '50px', height: '50px', objectFit:"scale-down"}}/>
@@ -42,7 +31,7 @@ const {shop} = props
             }}
           />
       </div>
-        <Card.Text className='p-1 text-muted'>{shop.industry} - {shop.country}</Card.Text>
+      <Card.Text className='p-1 text-muted'>{shop.industry} - {shop.country}</Card.Text>
     </Card>
   )
 }

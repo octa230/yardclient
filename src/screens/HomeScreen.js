@@ -103,6 +103,8 @@ function HomeScreen() {
           UG YARD | BUY | SELL 0NLINE-UGANDA
         </title>
       </Helmet>
+
+      {/* SHOPS SOWCASE */}
       <ShopsBar/>
       <h1 className="p-2">OUR TOP PICKS</h1>
         {loading ? (

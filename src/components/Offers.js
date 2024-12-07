@@ -11,7 +11,7 @@ export const OfferTemplateone = (props) => {
     case 'a':
       return (
         <div className="mt-2 p-2">
-          <h1>{offer.title.toUpperCase()}</h1>
+        <h1>{offer.title.toUpperCase()}</h1>
         <div className='horizontal-scroll'>
             {offer.listings?.map((listing, index) => (
               <div key={index} className="horizontal-item img">
@@ -31,7 +31,7 @@ export const OfferTemplateone = (props) => {
         <h1>{offer.title.toUpperCase()}</h1>
         {offer.listings?.map((listing, index) => (
           <Col key={index} className='p-1 d-flex flex-column justify-content-between' xs={6} md={3}>
-              <Card.Img className='img-rounded h-100% object-fit-contain'
+              <img className='img-rounded h-100% object-fit-contain'
                 src={listing.Photo}
                 
                 alt={listing.category.name}

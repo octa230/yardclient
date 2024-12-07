@@ -1,13 +1,12 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import Row from 'react-bootstrap/esm/Row';
 import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/esm/Col';
-import { Store } from '../Store';
 import LoadingBox from '../components/LoadingBox';
 import Product from '../components/Product';
 
@@ -31,13 +30,11 @@ const reducer = (state, action) => {
 };
 
 export default function ShopScreen() {
-  const { state } = useContext(Store);
-  const { userInfo } = state;
 
-  const { slug } = useParams();
-  const navigate = useNavigate()
-  const location = useLocation();
+  const params = useParams();
+  const {slug}= params
 
+  console.log(slug)
   const [{ loading, shop, products, error }, dispatch] = useReducer(
     reducer,
     {
@@ -50,29 +47,26 @@ export default function ShopScreen() {
 
   useEffect(() => {
     const fetchData = async () => {
-      if(!userInfo){
-        navigate('/signin');
-      }else{
+      
         try {
           dispatch({ type: 'FETCH_SHOP' });
-          const { data } = await axios.get(`https://api.ugyard.com/api/shops/seller/${slug}`, {
-            headers: { authorization: `Bearer ${userInfo.token}` },
+          const { data } = await axios.get(`https://api.ugyard.com/api/shops/${slug}`, {
+            //headers: { authorization: `Bearer ${userInfo.token}` },
           });
           dispatch({ type: 'FETCH_SUCCESS', payload: data });
           console.log(data)
           // Use the fetched shopId here to get products
           if (data?._id) {
             dispatch({ type: 'FETCH_SHOP_PRODUCTS' });
-            const results = await axios.get(`https://api.ugyard.com/api/shops/${data._id}/products`);
+            const results = await axios.get(`https://api.ugyard.com/api/shops/${data?._id}/products`);
             dispatch({ type: 'FETCH_SUCCESS_PRODUCTS', payload: results.data });
           }
         } catch (error) {
           dispatch({ type: 'FETCH_FAIL', payload: getError(error) });
         }
-      }
     };
     fetchData();
-  }, [slug, userInfo, location.pathname]);
+  }, [slug]);
 
   if (loading) return <LoadingBox />;
 
@@ -81,7 +75,7 @@ export default function ShopScreen() {
   return (
     <Container fluid>
       <Helmet>
-        <title>{shop.name}</title>
+        <title>{shop?.name}</title>
       </Helmet>
       <div>
         <div className='d-flex justify-content-between align-items-center'>
@@ -91,7 +85,7 @@ export default function ShopScreen() {
               alt={`logo ${shop.name}`}
               className='img-thumbnail rounded-circle m-1'
             />
-            <h5 className='p-2'>{shop.name.toUpperCase()}</h5>
+            <h5 className='p-2'>{shop?.name.toUpperCase()}</h5>
           </div>
           <small className='py-2 text-muted'>{shop.industry.toUpperCase()}</small>
           <div>
